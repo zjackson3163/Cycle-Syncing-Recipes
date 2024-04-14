@@ -110,7 +110,7 @@ $statement3->closeCursor();
             </tr>
             <?php endforeach; ?>
         </table>
-        <p><a href="add_new.php?phase_id=<?php echo $phase['phaseID']; ?>">Add New Recipe</a></p>
+        <p><a href="recipe_list.php?phase_id=<?php echo $phase['phaseID']; ?>">Add New Recipe</a></p>
         <p><a href="/GitHub/Cycle-Syncing-Recipes/index.php">Back To Main</a></p>       
     </section>
 
