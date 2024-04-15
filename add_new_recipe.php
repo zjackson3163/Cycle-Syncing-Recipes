@@ -1,61 +1,21 @@
-<?php
-require('database.php');
-$query = 'SELECT *
-          FROM phases
-          ORDER BY phaseID';
-$statement = $db->prepare($query);
-$statement->execute();
-$phases = $statement->fetchAll();
-$statement->closeCursor();
-?>
-<!DOCTYPE html>
-<html class = "outside">
-
-<!-- the head section -->
-<head>
-        <!-- Need a play on words title for cycle cyncing recipes !-->
-        <meta charset="UTF-8">
-        <title>Cycle Syncing Recipes || Home Page</title>
-        <link rel = "stylesheet" type="text/css" href="main.css"/>
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        
-        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-
-        <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
-    </head>
-
-<!-- make navigation bar to have phases, add new recipe, add new food type, etc !-->
-<nav class = "navbar">
-        <ul class = "navbar">
-            <li><a class = "navbar" href="/GitHub/Cycle-Syncing-Recipes/index.php">Home</a></li> 
-            <li class = "navbar" >
-                <?php foreach ($phases as $phase) : ?>
-                <li><a class = "navbar" href="recipe_list.php?phase_id=<?php echo $phase['phaseID']; ?>">
-                        <?php echo $phase['phase_name']; ?>
-                    </a>
-                </li>
-                <?php endforeach; ?>
-            </li>
-            <li><a class = "navbar" href="research.php">Learn More</a></li>
-            <li><a class = "navbar" href="add_new.php">Add New Recipe</a></li>
-        </ul>
-        </nav>  
+<?php include 'view/header.php'; ?>
+<?php include 'view/navbar.php'; ?>
 
 <!-- the body section -->
 <body class = "inside">
 
     <main>
         <h1> - Add Recipe -</h1>
-        <form action="add_recipe_form.php" method="post"
+        <form action="setup.php" method="post"
               id="add_recipe_form">
+
+            <input type="hidden" name="action" value="add_recipe" />
 
             <label>Phase:</label>
             <select name="phaseID">
             <?php foreach ($phases as $phase) : ?>
-                <option value="<?php echo $phase['phaseID']; ?>">
-                    <?php echo $phase['phase_name']; ?>
+                <option value="<?php echo $phase->getID(); ?>">
+                    <?php echo $phase->getName(); ?>
                 </option>
             <?php endforeach; ?>
             </select><br>

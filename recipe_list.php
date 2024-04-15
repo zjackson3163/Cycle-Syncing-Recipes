@@ -1,81 +1,12 @@
-<?php
-require_once('database.php');
+<?php include 'view/header.php'; ?>
+<?php include 'view/navbar.php'; ?>
+<?php include 'setup.php'; ?>
 
-// Get category ID
-if (!isset($phase_id)) {
-    $phaseID = filter_input(INPUT_GET, 'phase_id', 
-            FILTER_VALIDATE_INT);
-    if ($phaseID == NULL || $phaseID == FALSE) {
-        $phaseID = 1;
-    }
-}
-// Get name for selected category
-$queryCategory = 'SELECT * FROM phases
-                  WHERE phaseID = :phase_id'; //phase_id is a named variable  
-$statement1 = $db->prepare($queryCategory);
-$statement1->bindValue(':phase_id', $phaseID);
-$statement1->execute();
-$phase = $statement1->fetch();
-$phase_name = $phase['phase_name'];
-$statement1->closeCursor();
-
-
-// Get all categories
-$query = 'SELECT * FROM phases
-                       ORDER BY phaseID';
-$statement = $db->prepare($query);
-$statement->execute();
-$phases = $statement->fetchAll();
-$statement->closeCursor();
-
-// Get products for selected category
-$queryProducts = 'SELECT * FROM recipes
-                  WHERE phase_ID = :phase_id
-                  ORDER BY recipe_ID';
-$statement3 = $db->prepare($queryProducts);
-$statement3->bindValue(':phase_id', $phaseID);
-$statement3->execute();
-$recipes = $statement3->fetchAll();
-$statement3->closeCursor();
-?>
-
-<!DOCTYPE html>
-<html class = "outside">
-<head>
-        <!-- Need a play on words title for cycle cyncing recipes !-->
-        <meta charset="UTF-8">
-        <title>Cycle Syncing Recipes || Home Page</title>
-        <link rel = "stylesheet" type="text/css" href="main.css"/>
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        
-        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-
-        <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
-    </head>
-
-    <!-- make navigation bar to have phases, add new recipe, add new food type, etc !-->
-    <nav class = "navbar">
-        <ul class = "navbar">
-            <li><a class = "navbar" href="/GitHub/Cycle-Syncing-Recipes/index.php">Home</a></li> 
-            <li class = "navbar" >
-                <?php foreach ($phases as $phase) : ?>
-                <li><a class = "navbar" href="recipe_list.php?phase_id=<?php echo $phase['phaseID']; ?>">
-                        <?php echo $phase['phase_name']; ?>
-                    </a>
-                </li>
-                <?php endforeach; ?>
-            </li>
-            <li><a class = "navbar" href="research.php">Learn More</a></li>
-            <li><a class = "navbar" href="add_new_recipe.php?phase_id=<?php echo $phaseID; ?>">Add New Recipe</a></li>
-        </ul>
-        </nav>   
 
     <body class = "inside">
         <section>
         <!-- display a table of recipes -->
-        <h1 id = "phase_name">- <?php echo $phase_name; ?> -</h1>
+        <h1 id = "phase_name">- <?php echo $phaseDB->getPhase($phase_id)->getName(); ?> -</h1>
         <table>
             <tr>
                 <th>Recipe Name</th>
@@ -91,20 +22,23 @@ $statement3->closeCursor();
 
             <?php foreach ($recipes as $recipe) : ?>
             <tr>
-                <td><?php echo $recipe['recipe_name']; ?></td>
-                <td><a target="_blank" href = "<?php echo $recipe["recipe_link"] ?>"><?php echo $recipe["recipe_link"] ?></a></td>
-                <td><?php echo $recipe['calories']; ?></td>
-                <td><?php echo $recipe['protein']; ?></td>
-                <td><?php echo $recipe['carbs']; ?></td>
-                <td><?php echo $recipe['net_carbs']; ?></td>
-                <td><?php echo $recipe['fat']; ?></td>
-                <td><?php echo $recipe['fiber']; ?></td>
+                <td><?php echo $recipe -> getName(); ?></td>
+                <td><a target="_blank" href = "<?php echo $recipe -> getLink() ?>"><?php echo $recipe -> getLink() ?></a></td>
+                <td><?php echo $recipe -> getCalories(); ?></td>
+                <td><?php echo $recipe -> getProtein(); ?></td>
+                <td><?php echo $recipe -> getCarbs(); ?></td>
+                <td><?php echo $recipe -> getNet_Carbs(); ?></td>
+                <td><?php echo $recipe -> getFat(); ?></td>
+                <td><?php echo $recipe -> getFiber(); ?></td>
 
-                <td><form action="delete_product.php" method="post">
-                    <input type="hidden" name="product_id"
-                           value="<?php echo $product['productID']; ?>">
-                    <input type="hidden" name="category_id"
-                           value="<?php echo $product['categoryID']; ?>">
+                <td><form action="." method="post"
+                          id="delete_product_form">
+                    <input type="hidden" name="action"
+                           value="delete_recipe">
+                    <input type="hidden" name="recipe_id"
+                           value="<?php echo $recipe->getID(); ?>">
+                    <input type="hidden" name="phase_id"
+                           value="<?php echo $phaseDB->getPhase($phase_id)->getID(); ?> ?>">
                     <input type="submit" value="Delete">
                 </form></td>
             </tr>
@@ -116,7 +50,4 @@ $statement3->closeCursor();
 
     </body>
 
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> Cycle Syncing Recipes, Inc.</p>
-    </footer>
-</html>
+<?php include 'view/footer.php'; ?>

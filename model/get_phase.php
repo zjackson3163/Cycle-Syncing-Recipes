@@ -3,7 +3,7 @@ class PhaseDB {
 
     #This function gets the database and creates and returs an array of the phases in the database
     public function getPhases() {
-        $db = require_once('database.php');
+        $db = Database::getDB();
         $query = 'SELECT * FROM phases
                   ORDER BY phaseID';
         $result = $db->query($query);
@@ -19,15 +19,29 @@ class PhaseDB {
 
     #This function gets the database and searches the database for which phase matches the phaseID given and sets the Phase object to that name and ID
     public function getPhase($phase_id) {
-        $db = require_once('database.php');
+        $db = Database::getDB();
         $query = "SELECT * FROM phases
                   WHERE phaseID = '$phase_id'";
-        $statement = $db->query($query);
-        $row = $statement->fetch();
-        $phase = new Phase();
-        $phase->setID($row['phaseID']);
-        $phase->setName($row['phase_name']);
-        return $phase;
+        try {
+            $statement = $db->query($query);
+            if ($statement === false) {
+                // Handle query execution error
+                throw new Exception("Query execution failed");
+            }
+            $row = $statement->fetch();
+            if ($row === false) {
+                // Handle no results found
+                throw new Exception("No phase found with ID $phase_id");
+            }
+            $phase = new Phase();
+            $phase->setID($row['phaseID']);
+            $phase->setName($row['phase_name']);
+            return $phase;
+        } catch (Exception $e) {
+            // Handle exception
+            echo 'Error: ' . $e->getMessage();
+            return null;
+        }
     }
 }
 ?>

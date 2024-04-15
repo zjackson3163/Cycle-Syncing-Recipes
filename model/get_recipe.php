@@ -1,9 +1,9 @@
 <?php
-class recipeDB {
+class RecipeDB {
 
     #This method...
     public function getrecipes() {
-        $db = require_once('database.php');
+        $db = Database::getDB();
         $query = 'SELECT * FROM recipes
                   INNER JOIN phases
                       ON recipes.phaseID = recipes.phaseID'; //?
@@ -17,10 +17,11 @@ class recipeDB {
             
             // create the recipe object
             $recipe = new Recipe();
-            $recipe->setPhase($phase_ID); //?
+            $recipe->setPhase($phase); //?
             $recipe->setId($row['recipe_ID']);
+            $recipe->setName($row['recipe_name']);
             $recipe->setLink($row['recipe_link']);
-            $recipe->setCalories($row['colories']);
+            $recipe->setCalories($row['calories']);
             $recipe->setProtein($row['protein']);
             $recipe->setCarbs($row['carbs']);
             $recipe->setFat($row['fat']);
@@ -33,7 +34,7 @@ class recipeDB {
 
     #This method...
     public function getRecipesByPhase($phase_id) {
-        $db = require_once('database.php');
+        $db = Database::getDB();
 
         $phaseDB = new PhaseDB();
         $phase = $phaseDB->getPhase($phase_id);
@@ -46,10 +47,11 @@ class recipeDB {
 
         foreach ($result as $row) {
             $recipe = new Recipe();
-            $recipe->setPhase($phase_ID); //?
+            $recipe->setPhase($phase); //?
             $recipe->setId($row['recipe_ID']);
             $recipe->setLink($row['recipe_link']);
-            $recipe->setCalories($row['colories']);
+            $recipe->setName($row['recipe_name']);
+            $recipe->setCalories($row['calories']);
             $recipe->setProtein($row['protein']);
             $recipe->setCarbs($row['carbs']);
             $recipe->setFat($row['fat']);
@@ -62,20 +64,22 @@ class recipeDB {
     }
 
     public function getRecipe($recipe_id) {
-        $db = require_once('database.php');
+        $db = Database::getDB();
         $query = "SELECT * FROM recipes
                   WHERE recipeID = '$recipe_id'";
         $result = $db->query($query);
         $row = $result->fetch();
 
         $categoryDB = new PhaseDB();
-        $category = $categoryDB->getPhase($row['phaseID']);
+        $phase = $categoryDB->getPhase($row['phaseID']);
 
         $recipe = new Recipe();
-        $recipe->setPhase($phase_ID); //?
+        $recipe->setName($row['recipe_name']);
+        $recipe->setPhase($phase); //?
         $recipe->setId($row['recipe_ID']);
+        $recipe->setName($row['recipe_name']);
         $recipe->setLink($row['recipe_link']);
-        $recipe->setCalories($row['colories']);
+        $recipe->setCalories($row['calories']);
         $recipe->setProtein($row['protein']);
         $recipe->setCarbs($row['carbs']);
         $recipe->setFat($row['fat']);
@@ -86,17 +90,17 @@ class recipeDB {
     }
 
     public function deleteRecipe($recipe_id) {
-        $db = require_once('database.php');
+        $db = Database::getDB();
         $query = "DELETE FROM recipes
-                  WHERE recipeID = '$recipe_id'";
+                  WHERE recipe_ID = '$recipe_id'";
         $row_count = $db->exec($query);
         return $row_count;
     }
 
     public function addRecipe($recipe) {
-        $db = require_once('database.php');
+        $db = Database::getDB();
 
-        $phase_id = $recipe->getCategory()->getID();
+        $phase_id = $recipe->getID();
         $name = $recipe->getName();
         $link = $recipe->getLink();
         $calories = $recipe->getCalories();
