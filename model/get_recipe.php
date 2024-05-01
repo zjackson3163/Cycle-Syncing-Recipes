@@ -1,7 +1,7 @@
 <?php
 class RecipeDB {
 
-    #This method...
+    #This method returns an array of the recipes found with the phaseID number
     public function getrecipes() {
         $db = Database::getDB();
         $query = 'SELECT * FROM recipes
@@ -10,12 +10,12 @@ class RecipeDB {
         $result = $db->query($query);
         $recipes = array();
         foreach ($result as $row) {
-            // create the Category object
+            // create the Phase object
             $phase = new Phase();
             $phase->setID($row['phaseID']);
             $phase->setName($row['phase_name']);
             
-            // create the recipe object
+            // create the Recipe object
             $recipe = new Recipe();
             $recipe->setPhase($phase); //?
             $recipe->setId($row['recipe_ID']);
@@ -32,7 +32,6 @@ class RecipeDB {
         return $recipes;
     }
 
-    #This method...
     public function getRecipesByPhase($phase_id) {
         $db = Database::getDB();
 
@@ -40,7 +39,7 @@ class RecipeDB {
         $phase = $phaseDB->getPhase($phase_id);
 
         $query = "SELECT * FROM recipes
-                  WHERE phase_ID = '$phase_id' #??
+                  WHERE phase_ID = '$phase_id' 
                   ORDER BY recipe_ID";
         $result = $db->query($query);
         $recipes = array();
@@ -63,6 +62,7 @@ class RecipeDB {
         return $recipes;
     }
 
+    #This method returns the recipe found with recipe_id variable
     public function getRecipe($recipe_id) {
         $db = Database::getDB();
         $query = "SELECT * FROM recipes
@@ -89,6 +89,7 @@ class RecipeDB {
         return $recipe;
     }
 
+    #This method deletes the recipe found with the same number found in the recipe_id variable
     public function deleteRecipe($recipe_id) {
         $db = Database::getDB();
         $query = "DELETE FROM recipes
@@ -97,6 +98,7 @@ class RecipeDB {
         return $row_count;
     }
 
+    #This method adds a new recipe to the database by taking the recipe created in another method and setting the recipe variables to the variables given and inserting it into the recipes database
     public function addRecipe($recipe) {
         $db = Database::getDB();
 

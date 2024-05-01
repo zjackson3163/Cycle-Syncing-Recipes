@@ -5,7 +5,7 @@ require_once('model/get_phase.php');
 require_once('model/recipe.php');
 require_once('model/get_recipe.php');
 
-// create the PhaseDB object
+// create the PhaseDB and RecipeDB objects
 $phaseDB = new PhaseDB();
 $recipeDB = new RecipeDB();
 
@@ -16,7 +16,7 @@ if ($phase_id === null || $phase_id === false) {
     $phase_id = 1; // Set default phase ID if not provided or invalid
 }
 
-// Get product and category data
+// Get recipe and phase data
 $current_phase = $phaseDB->getPhase($phase_id);
 if ($current_phase === null) {
     //Unable to retrieve current phase
@@ -57,11 +57,7 @@ if ($action == 'list_recipes') {
 
 } 
 
-else if ($action == 'show_add_form') {
-    $categories = $categoryDB->getCategories();
-    include('add_recipe_form.php');
-} 
-
+//This should be adding a recipe but its saying "Cannot add or update a child row: a foreign key constraint fails" will debug
 else if ($action == 'add_recipe') {
     $phaseID = filter_input(INPUT_POST, 'phaseID'   );
     $recipe_name = filter_input(INPUT_POST, 'recipe_name');

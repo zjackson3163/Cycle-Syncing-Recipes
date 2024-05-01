@@ -1,13 +1,15 @@
 <?php include 'view/header.php'; ?>
 <?php include 'view/navbar.php'; ?>
 
+
+<!-- Not working?? Still debugging, was working before but then I wanted to implement the MVC pattern and now it's messing me up, but by Part 3 it will work!! !-->
+
 <!-- the body section -->
 <body class = "inside">
 
     <main>
         <h1> - Add Recipe -</h1>
-        <form action="setup.php" method="post"
-              id="add_recipe_form">
+        <form action="setup.php" method="post">
 
             <input type="hidden" name="action" value="add_recipe" />
 

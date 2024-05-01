@@ -11,16 +11,16 @@
         
 
         <h3>Menstrual (Winter)</h3>
-        <pre>       + The Menstrual phase is the first phase of your period. The bleeding. This lasts from 3-5 days. </pre>
+        <pre>       + The Menstrual phase is the first phase of your period. The bleeding. This lasts from 3-5 days. Will add more infor later... </pre>
 
         <h3>Follicular (Spring)</h3>
-        <pre>       + The Follicular phase is the second phase of your period. This lasts from 13-14 days.</pre>
+        <pre>       + The Follicular phase is the second phase of your period. This lasts from 13-14 days. Will add more info later...</pre>
 
         <h3>Ovulation (Summer)</h3>
-        <pre>       + The Ovulation phase is the third phase of your period. This lasts from 3-5 days.</pre>
+        <pre>       + The Ovulation phase is the third phase of your period. This lasts from 3-5 days. Will add more info later...</pre>
 
         <h3>Luteal (Fall)</h3>
-        <pre>       + The Luteal phase is the fourth phase of your period. This lasts from 12-14 days.</pre>
+        <pre>       + The Luteal phase is the fourth phase of your period. This lasts from 12-14 days. Will add more info later...</pre>
 
     </body>
 

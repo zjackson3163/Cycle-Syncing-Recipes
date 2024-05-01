@@ -1,6 +1,9 @@
 <?php include 'view/header.php'; ?>
 <?php include 'view/navbar.php'; ?>
 
+<!-- WORK IN PROGRESS!!!!! !-->
+<!-- This page is still a work in progress. This is supposed to make the add new recipe form appear at the bottom of the table the user is currently on. It somewhat worked, but only with the "Any Phase" table. Still debugging. !-->
+
     <body class = "inside">
         <section>
         <!-- display a table of recipes -->

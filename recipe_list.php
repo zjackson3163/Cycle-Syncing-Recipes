@@ -3,6 +3,8 @@
 <?php include 'setup.php'; ?>
 
 
+<?php echo memory_get_usage()?> 
+<?php echo memory_get_peak_usage()?>
     <body class = "inside">
         <section>
         <!-- display a table of recipes -->
@@ -44,7 +46,10 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <p><a href="recipe_list.php?phase_id=<?php echo $phase['phaseID']; ?>">Add New Recipe</a></p>
+
+        <!-- This link is a work in progress for what I want it to do... !-->
+        <p><a href="recipe_list.php?phase_id=<?php echo $phase->getID(); ?>">Add New Recipe</a></p>
+        
         <p><a href="/GitHub/Cycle-Syncing-Recipes/index.php">Back To Main</a></p>       
     </section>
 

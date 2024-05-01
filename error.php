@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-
-<!-- the head section -->
-<head>
-    <title>Cycle Syncing Recipes</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
-</head>
+<?php include 'view/header.php'; ?>
+<?php include 'view/navbar.php'; ?>
 
 <!-- the body section -->
 <body>
@@ -16,8 +10,4 @@
         <p><?php echo $error; ?></p>
     </main>
 
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> Cycle Syncing Recipes, Inc.</p>
-    </footer>
-</body>
-</html>
+<?php include 'view/footer.php'; ?>
