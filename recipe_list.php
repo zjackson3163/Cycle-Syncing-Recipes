@@ -3,8 +3,7 @@
 <?php include 'setup.php'; ?>
 
 
-<?php echo memory_get_usage()?> 
-<?php echo memory_get_peak_usage()?>
+
     <body class = "inside">
         <section>
         <!-- display a table of recipes -->

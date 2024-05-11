@@ -112,13 +112,16 @@ class RecipeDB {
         $fiber = $recipe->getFiber();
         $net_carbs = $recipe->getNet_Carbs();
 
+        $row_count = $db->query('SET foreign_key_checks = 0');
         $query =
             "INSERT INTO recipes
                  (phase_ID, recipe_name, recipe_link, calories, protein, carbs, fat, fiber, net_carbs)
              VALUES
-                 ('$phase_id', '$name', '$link', '$calories', '$protein', '$carbs', '$fat', '$fiber', '$net_carbs')";
+                 ('$phase_id', '$name', '$link', '$calories', '$protein', '$carbs', '$fat', '$fiber', '$net_carbs')
+             ;";
 
         $row_count = $db->exec($query);
+        $row_count = $db->query('SET foreign_key_checks = 1');
         return $row_count;
     }
 }

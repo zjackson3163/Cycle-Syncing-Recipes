@@ -59,7 +59,7 @@ if ($action == 'list_recipes') {
 
 //This should be adding a recipe but its saying "Cannot add or update a child row: a foreign key constraint fails" will debug
 else if ($action == 'add_recipe') {
-    $phaseID = filter_input(INPUT_POST, 'phaseID'   );
+    $phaseID = filter_input(INPUT_POST, 'phase_ID');
     $recipe_name = filter_input(INPUT_POST, 'recipe_name');
     $recipe_link = filter_input(INPUT_POST, 'recipe_link');
     $calories = filter_input(INPUT_POST, 'calories', FILTER_VALIDATE_INT);
@@ -76,7 +76,7 @@ else if ($action == 'add_recipe') {
     } else {
         $current_phase = $phaseDB->getPhase($phaseID);
 
-        // Create the Product object
+        // Create the Recipe object
         $recipe = new Recipe();
         $recipe->setPhase($phaseID);
         $recipe->setName($recipe_name);
@@ -88,11 +88,12 @@ else if ($action == 'add_recipe') {
         $recipe->setFiber($fiber);
         $recipe->setNet_Carbs($net_carbs);
 
-        // Add the Product object to the database
+        // Add the Recipe object to the database
         $recipeDB->addRecipe($recipe);
 
-        // Display the Product List page for the current category
-        header("recipe_list.php");
+        // Display the recipe List page for the current category
+        header("Location: recipe_list.php");
+        exit();
     }
 }
 
