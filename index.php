@@ -3,6 +3,7 @@
     <body class = "inside">
         <h1 id = "main_head">&#x1F31B&#x1FA78 Cycle Syncing Recipes &#x1FA78&#x1F31C</h1>
 
+        <div class="container">
         <section class = "para">
         <p>Research shows that eating certain foods during various phases of the menstrual cycle help your body to produce or release hormones the hormones needed during different phases. Eating this way can possibly hep to control PMS symptoms. While it all boils down to eating healthier, less inflammatory foods. I found that it helps me to narrow down recipes if I eat by what phase I'm in. This website was created as a personal project to keep track of recipes that help hormones during different phases of the menstrual cycle.</p>
 
@@ -21,7 +22,7 @@
 
         <h3>Luteal (Fall)</h3>
         <pre>       + The Luteal phase is the fourth phase of your period. This lasts from 12-14 days. Will add more info later...</pre>
-
+</div>
     </body>
 
 <?php include 'view/footer.php'; ?>
