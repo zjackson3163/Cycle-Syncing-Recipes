@@ -8,7 +8,7 @@
         <li><a class = "navbar" href="research.php">Learn More</a></li>
         <li>
             <div class="dropdown">
-                <button class="dropbtn">Dropdown
+                <button class="dropbtn">Phases
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
