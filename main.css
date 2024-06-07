@@ -44,9 +44,9 @@ p, li, td, pre{
     font-size: 30px;
 }
 
-.para{
+.why{
     text-align: center;
-    padding: 20px 70px;
+    padding: 0px 70px 20px 70px;
     border-top: 2px dashed #120014;
     border-bottom: 2px dashed #120014;
     margin-top: 20px;
@@ -73,18 +73,17 @@ ul {
   }
 
   li.navbar{
-    float: left;
+    float: right;
   }
 
   li a.navbar{
-    float: left;
+    float: right;
     display: block;
     color: white;
     text-align: center;
-    padding: 20px 43.5px;
+    /*padding: 20px 43.5px;*/
     text-decoration: none;
-    border-right: 2px solid #d6f8cf;
-    border-radius: 20px;
+    /*border-right: 2px solid #d6f8cf;*/
   }
 
   li a.navbar:hover {
@@ -93,6 +92,29 @@ ul {
 
   li a.active {
     background-color: #ffffff;
+  }
+
+  #phase_pic_container{
+    display: flex;
+    justify-content: center;
+    border-top: 2px dashed #120014;
+    
+  }
+
+  .phase_links{
+    display: flex;
+    padding:0%;
+    margin:0%;
+    justify-content: center;
+    width: 18%;
+    margin-top: 20px;
+  }
+
+  .phase_pics{
+    display: inline-block;
+    margin: 2% 1%;
+    border-radius: 8%;
+    width: 85%;
   }
 
 
@@ -113,6 +135,72 @@ ul {
     footer{
         padding: 2px;
     }
+
+    /* phases dropdown */
+    .phases {
+        overflow: hidden;
+        background-color: #a59ca7;
+        font-family: Arial;
+    }
+  
+  /* Links inside the navbar */
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* The dropdown container */
+  .dropdown {
+    float: right;
+    overflow: hidden;
+  }
+  
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+  
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    color: #120014;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+  }
+  
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
    /* body {
       font-family: Arial, sans-serif;
