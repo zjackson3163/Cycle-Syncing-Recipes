@@ -119,18 +119,41 @@ ul {
 
 
   table {
-    margin: 30px 50px;
-    border: 2px solid #061802;
-    border-collapse: collapse;
-    border-radius: 5px;
+    margin: -30px 50px 30px 50px;
+    border-collapse: separate;
+    border-spacing: 0 2em;
+    
     }
+
+  tr{
+    border-radius: 50px;
+  }
+
+  #table_labels{
+    border-spacing: 0;
+    margin-bottom: 0;
+  }
+
+  #edge-left{
+    border-radius: 25px 0 0 25px;
+  }
+
+  #edge-right{
+    border-radius: 0 25px 25px 0;
+  }
+
+  .labels{
+    border: 0px dashed black; 
+  }
 
   td, th {
     border: 1px dashed black;
     padding: 1em .5em 1em .5em;
     vertical-align: top;
     text-align: left;
+    
     }  
+    
 
     footer{
         padding: 2px;
@@ -179,6 +202,7 @@ ul {
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border: 1px solid #27032c;
     z-index: 1;
   }
   
@@ -190,6 +214,7 @@ ul {
     text-decoration: none;
     display: block;
     text-align: center;
+    border: 1px solid #27032c;
   }
   
   /* Add a grey background color to dropdown links on hover */

@@ -9,30 +9,30 @@
         <!-- display a table of recipes -->
         <h1 id = "phase_name">- <?php echo $phaseDB->getPhase($phase_id)->getName(); ?> -</h1>
         <table>
-            <tr>
-                <th>Recipe Name</th>
-                <th>Link</th>
-                <th class="right">Calories</th>
-                <th class="right">Protein</th>
-                <th class="right">Carbs</th>
-                <th class="right">Net Carbs</th>
-                <th class="right">Fat</th>
-                <th class="right">Fiber</th>
-                <th>&nbsp;</th>
+            <tr id = "table_labels">
+                <th class="labels">Recipe Name</th>
+                <th class="labels">Link</th>
+                <th class="right, labels">Calories</th>
+                <th class="right, labels">Protein</th>
+                <th class="right, labels">Carbs</th>
+                <th class="right, labels">Net Carbs</th>
+                <th class="right, labels">Fat</th>
+                <th class="right, labels">Fiber</th>
+                <!--<th>&nbsp;</th>!-->
             </tr>
 
             <?php foreach ($recipes as $recipe) : ?>
             <tr>
-                <td><?php echo $recipe -> getName(); ?></td>
+                <td id="edge-left"><?php echo $recipe -> getName(); ?></td>
                 <td><a target="_blank" href = "<?php echo $recipe -> getLink() ?>"><?php echo $recipe -> getLink() ?></a></td>
                 <td><?php echo $recipe -> getCalories(); ?></td>
                 <td><?php echo $recipe -> getProtein(); ?></td>
                 <td><?php echo $recipe -> getCarbs(); ?></td>
                 <td><?php echo $recipe -> getNet_Carbs(); ?></td>
                 <td><?php echo $recipe -> getFat(); ?></td>
-                <td><?php echo $recipe -> getFiber(); ?></td>
+                <td id="edge-right"><?php echo $recipe -> getFiber(); ?></td>
 
-                <td><form action="." method="post"
+                <!--<td><form action="." method="post"
                           id="delete_product_form">
                     <input type="hidden" name="action"
                            value="delete_recipe">
@@ -41,7 +41,7 @@
                     <input type="hidden" name="phase_id"
                            value="<?php echo $phaseDB->getPhase($phase_id)->getID(); ?> ?>">
                     <input type="submit" value="Delete">
-                </form></td>
+                </form></td>!-->
             </tr>
             <?php endforeach; ?>
         </table>
