@@ -11,7 +11,7 @@ html{
 
 body:not(nav){
     
-    background-color: #a59ca7;
+    background-color: #d5cad8;
     border-color: #061802;
     border-radius: 10px;
     min-width: 80rem;
@@ -37,20 +37,18 @@ p, li, td, pre{
 
 #main_head{
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+}
+
+#slogan{
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 #phase_name{
     font-size: 30px;
 }
 
-.why{
-    text-align: center;
-    padding: 0px 70px 20px 70px;
-    border-top: 2px dashed #120014;
-    border-bottom: 2px dashed #120014;
-    margin-top: 20px;
-}
 
 nav{
     margin-bottom: 30px;
@@ -87,7 +85,7 @@ ul {
   }
 
   li a.navbar:hover {
-    background-color: #0c2e04;
+    background-color: #0c2e0493;
   }
 
   li a.active {
@@ -97,7 +95,7 @@ ul {
   #phase_pic_container{
     display: flex;
     justify-content: center;
-    border-top: 2px dashed #120014;
+    margin-bottom: 50px;
     
   }
 
@@ -115,6 +113,12 @@ ul {
     margin: 2% 1%;
     border-radius: 8%;
     width: 85%;
+    box-shadow: -2px 2px 3px #120014;
+
+  }
+
+  .phase_links:hover{
+    background-color: rgba(255, 255, 255, 0.116);
   }
 
 
@@ -154,9 +158,36 @@ ul {
     
     }  
     
+    .why{
+      width: 85%;
+      text-align: center;
+      margin: 40px auto 50px 80px;
+      align-items: center;
+      display: flex;
+  }
+
+  .why-head{
+    text-align: center;
+  }
+
+  .why-left{
+    display: inline-block;
+    width: auto;
+    padding: 0 140px 0 100px;
+  }
+  .why-right{
+    display: inline-block;
+    width: 400px;
+    height: auto;
+    box-shadow: 1px 1px 5px black;
+    border-radius: 10px;
+    margin-right: 50px;
+  }
 
     footer{
         padding: 2px;
+        text-align: center;
+        margin-bottom: 10px;
     }
 
     /* phases dropdown */
@@ -202,7 +233,7 @@ ul {
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    border: 1px solid #27032c;
+    border: 1px solid #27032c2d;
     z-index: 1;
   }
   
@@ -214,7 +245,7 @@ ul {
     text-decoration: none;
     display: block;
     text-align: center;
-    border: 1px solid #27032c;
+    border: 1px solid #27032c27;
   }
   
   /* Add a grey background color to dropdown links on hover */
