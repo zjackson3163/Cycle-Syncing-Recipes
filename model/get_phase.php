@@ -44,5 +44,32 @@ class PhaseDB {
         }
     }
 
+    public function getDesc($phase_id){
+        $db = Database::getDB();
+        $query = "SELECT * FROM phases
+                  WHERE phaseID = '$phase_id'";
+        try {
+            $statement = $db->query($query);
+            if ($statement === false) {
+                // Handle query execution error
+                throw new Exception("Query execution failed");
+            }
+            $row = $statement->fetch();
+            if ($row === false) {
+                // Handle no results found
+                throw new Exception("No phase found with ID $phase_id");
+            }
+            $phase = new Phase();
+            $phase->setID($row['phaseID']);
+            $phase->setName($row['phase_name']);
+            $phase->setDesc($row['description']);
+            return $phase;
+        } catch (Exception $e) {
+            // Handle exception
+            echo 'Error: ' . $e->getMessage();
+            return null;
+        }
+    }
+
 }
 ?>

@@ -57,6 +57,7 @@ nav{
 
 .research{
     list-style-type: circle;
+    margin-left: 3em;
 }
 
 ul {
@@ -125,7 +126,7 @@ ul {
   table {
     margin: -30px 50px 30px 50px;
     border-collapse: separate;
-    border-spacing: 0 2em;
+    border-spacing: 0 .5em;
     
     }
 
@@ -138,20 +139,21 @@ ul {
     margin-bottom: 0;
   }
 
-  #edge-left{
+  /*#edge-left{
     border-radius: 25px 0 0 25px;
   }
 
   #edge-right{
     border-radius: 0 25px 25px 0;
-  }
+  }*/
 
   .labels{
     border: 0px dashed black; 
+    vertical-align: bottom;
   }
 
   td, th {
-    border: 1px dashed black;
+    border: 1px solid #27032c;
     padding: 1em .5em 1em .5em;
     vertical-align: top;
     text-align: left;
@@ -256,6 +258,10 @@ ul {
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {
     display: block;
+  }
+
+  .info{
+    margin: auto 2em 2em 2em;
   }
 
    /* body {

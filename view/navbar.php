@@ -20,7 +20,7 @@
                 </div>
             </div>
         </li>
-        <li><a class = "navbar" href="research.php">About</a></li>
+        <li><a class = "navbar" href="breakdown.php">Breakdown</a></li>
         <li><a class = "navbar" href="/GitHub/Cycle-Syncing-Recipes/index.php">Home</a></li> 
     </ul>
     </nav>  

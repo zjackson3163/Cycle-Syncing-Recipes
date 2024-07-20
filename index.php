@@ -2,7 +2,7 @@
 <?php include 'view/navbar.php'; ?>
     <body class = "inside">
         <h1 id = "main_head">&#x1F31B&#x1FA78 Cycle Syncing Recipes &#x1FA78&#x1F31C</h1>
-        <p id = "slogan"> slogan for the website Lorem ipsum</p>
+        <p id = "slogan">~ Hormone harmony, one recipe at a time ~</p>
         <hr>
 
         <div class="container">

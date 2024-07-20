@@ -8,6 +8,7 @@
         <section>
         <!-- display a table of recipes -->
         <h1 id = "phase_name">- <?php echo $phaseDB->getPhase($phase_id)->getName(); ?> -</h1>
+        <p id = "phase_desc"> <?php echo $phaseDB->getPhase($phase_id)->getDesc(); ?></p>
         <table>
             <tr id = "table_labels">
                 <th class="labels">Recipe Name</th>

@@ -2,6 +2,7 @@
 class Phase {
     private $id;
     private $name;
+    private $desc;
 
     public function __construct() {
         $this->id = 0;
@@ -23,5 +24,12 @@ class Phase {
     public function setName($value) {
         $this->name = $value;
     }
+
+    public function getDesc() {
+        return $this->desc;
+    }
+
+    public function setDesc($value) {
+        $this->desc = $value;
+    }
 }
-?>
