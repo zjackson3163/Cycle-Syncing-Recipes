@@ -13,7 +13,7 @@
                 </a>
                 <a class = "phase_links" href="recipe_list.php?phase_id=2">
                     <img class = "phase_pics" src="images/Spring.png" alt="spring branches">
-                </ahref>
+                </a>
                 <a class = "phase_links" href="recipe_list.php?phase_id=3">
                     <img class = "phase_pics" src="images/Summer.png" alt="summer branches">
                 </a>
